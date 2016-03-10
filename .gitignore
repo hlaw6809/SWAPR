@@ -13,4 +13,4 @@
 /tmp
 
 #Ignore Jetbrains' RubyMine files
-/.idea
+/.idea*
