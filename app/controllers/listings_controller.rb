@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
   end
 
   def search
+    @search = params[:param]
+  end
 
+  def show
+    redirect_to listings_path
   end
 end

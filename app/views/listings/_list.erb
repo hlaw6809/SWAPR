@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+  </tr>
+
+  <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.date_created %></td>
+        <td><%= listing.title %></td>
+      </tr>
+  <% end %>
+</table>
