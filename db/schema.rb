@@ -11,23 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310092902) do
+ActiveRecord::Schema.define(version: 20160310201045) do
 
-  create_table "listings", force: :cascade do |t|
-    t.integer "listing_id",    limit: 4,   null: false
-    t.integer "owner_id",      limit: 4,   null: false
-    t.string  "title",         limit: 255, null: false
-    t.string  "description",   limit: 255, null: false
-    t.string  "images",        limit: 255
-    t.string  "category",      limit: 255, null: false
-    t.integer "borrow_length", limit: 4,   null: false
-    t.date    "date_created",              null: false
-    t.date    "date_modified"
+  create_table "listings", id: false do |t|
+    t.primary_key   "listing_id"
+    t.integer       "owner_id",                limit: 4,   null: false
+    t.string        "title",                   limit: 255, null: false
+    t.string        "description",             limit: 255, null: false
+    t.string        "images",                  limit: 255
+    t.string        "category",                limit: 255, null: false
+    t.integer       "borrow_length",           limit: 4,   null: false
+    t.date          "date_created",                        null: false
+    t.date          "date_modified"
+    t.string        "post_image_file_name",    limit: 255
+    t.string        "post_image_content_type", limit: 255
+    t.integer       "post_image_file_size",    limit: 4
+    t.datetime      "post_image_updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "users", id: false do |t|
+    t.primary_key "user_id"
+    t.string "name",         limit: 255, null: false
+    t.string "address",      limit: 255, null: false
+    t.string "city",         limit: 255, null: false
+    t.string "state",        limit: 255, null: false
+    t.string "zip",          limit: 255, null: false
+    t.string "phone"
+    t.string "email",        limit: 255, null: false
   end
 
 end

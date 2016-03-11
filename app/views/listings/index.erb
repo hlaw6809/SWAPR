@@ -8,9 +8,13 @@
 </head>
 <body>
 
+<%= render partial: 'navbar' %>
+
 <h1>Welcome To SWAPR</h1>
 
-<%= render partial: 'list', locals: {listings: @listings} %>
+<div class="container">
+  <%= render partial: 'list', locals: {listings: @listings} %>
+</div>
 
 </body>
 </html>
