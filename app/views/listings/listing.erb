@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SWAPR</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render partial: 'navbar' %>
+
+<div class="container">
+  <div class="page-header">
+    <h1>
+      <%= @listing.title %>
+      <small><%= @listing.date_created %></small>
+    </h1>
+    <%= @listing.category %>
+  </div>
+  <div>
+    <p>
+      Owner: <%= @owner.name %> <br>
+      Contact Info: <%= @owner.email %>
+    </p>
+    <hr>
+    <p>
+      <%= @listing.description %>
+    </p>
+    <p>
+      Available for
+      <%= @listing.borrow_length %>
+      days
+    </p>
+    <input value="request" type="button" class="btn btn-success" />
+  </div>
+</div>
+
+</body>
+</html>

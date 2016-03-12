@@ -10,9 +10,10 @@
 
 <%= render partial: 'navbar' %>
 
-<h1>Welcome To SWAPR</h1>
-
 <div class="container">
+  <div class="page-header">
+    <h1>Welcome To SWAPR</h1>
+  </div>
   <%= render partial: 'list', locals: {listings: @listings} %>
 </div>
 

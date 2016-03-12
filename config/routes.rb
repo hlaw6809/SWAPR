@@ -18,5 +18,9 @@ Rails.application.routes.draw do
 
   root 'listings#index'
 
-  get 'listings/search/:param' => 'listings#search'
+  get 'listings/search/:query' => 'listings#search'
+
+  get 'listings/listing/:id' => 'listings#listing'
+
+  get 'listings/request_listing/:id' => 'listings#index'
 end

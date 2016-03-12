@@ -5,6 +5,15 @@ class ListingsController < ApplicationController
     puts @listings
   end
 
+  def listing
+    @listing = Listing.where(:listing_id => params[:id]).first
+    @owner = User.where(:user_id => @listing.owner_id).first
+  end
+
+  def request_listing
+
+  end
+
   def new
     @listing = Listing.new
   end
@@ -14,12 +23,15 @@ class ListingsController < ApplicationController
     Listing.create(listing_params) do |listing|
       listing.owner_id = @user.user_id
       listing.date_created = Date.today
+
     end
     redirect_to listings_path
   end
 
   def search
-    @search = params[:param]
+    @query = "%#{params[:query]}%"
+
+    @listings = Listing.where("title LIKE ?", @query)
   end
 
   def show
@@ -29,6 +41,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :borrow_length, :category)
+    params.require(:listing).permit(:title, :description, :borrow_length, :category, :post_image)
   end
 end
