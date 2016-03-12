@@ -2,16 +2,16 @@
 
   <thead>
     <tr>
-      <th>Date</th>
       <th>Title</th>
+      <th>Date</th>
     </tr>
   </thead>
 
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= link_to listing.title, listing %></td>
         <td><%= listing.date_created %></td>
-        <td><%= listing.title %></td>
       </tr>
     <% end %>
   </tbody>

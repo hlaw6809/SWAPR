@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.order('date_created DESC')
-    puts @listings
   end
 
   def listing
@@ -30,7 +29,6 @@ class ListingsController < ApplicationController
 
   def search
     @query = "%#{params[:query]}%"
-
     @listings = Listing.where("title LIKE ?", @query)
   end
 
